@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Move zero to the end of the Array</title>
+  </head>
+  <body>
+    <script>
+      //Method-1. Count and Overwrite
+      // function moveZeroToTheEnd(arr) {
+      //   let count = 0;
+      //   for (let i = 0; i <= arr.length; i++) {
+      //     if (arr[i] !== 0) {
+      //       arr[count++] = arr[i];
+      //     }
+      //   }
+      //   while (count < arr.length) {
+      //     arr[count++] = 0;
+      //   }
+      //   return arr;
+      // }
+      // let arr = [1, 3, 0, 0, 5, 0, 6, 0, 0, 6, 8, 4];
+      // document.writeln(moveZeroToTheEnd(arr));
+      //Time Complexity - O(n)
+      //Space Complexity - O(1)
+
+      //Methos-2. Filter + Fill (Built-in Methods)
+      // function moveZerosWithFilter(arr) {
+      //   let nonZeros = arr.filter((num) => num !== 0);
+      //   let zeros = new Array(arr.length - nonZeros.length).fill(0);
+      //   return [...nonZeros, ...zeros];
+      // }
+      // let arr = [1, 3, 0, 0, 5, 0, 6, 0, 0, 6, 8, 4];
+      // console.log(moveZerosWithFilter(arr));
+      //Time Complexity - O(n)
+      //Space Complexity - O(n)
+
+      //Methos-3. Best Approach – Two Pointer Technique (In-place, O(n) time, O(1) space)
+      function moveZerosToEnd(arr) {
+        let index = 0; // Non-zero element ke liye position track karne wala pointer
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== 0) {
+            // Swap only when needed
+            if (i !== index) {
+              [arr[i], arr[index]] = [arr[index], arr[i]];
+            }
+            index++;
+          }
+        }
+
+        return arr;
+      }
+      let arr = [1, 3, 0, 0, 5, 0, 6, 0, 0, 6, 8, 4];
+      console.log(moveZerosToEnd(arr));
+      //Time Complexity - O(n)
+      //Space Complexity - O(1)
+    </script>
+  </body>
+</html>
