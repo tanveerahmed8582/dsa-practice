@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numebr that appear ones</title>
+  </head>
+  <body>
+    <script>
+      function numAppearOnes(arr) {
+        let result = 0;
+        for (let num of arr) {
+          result = result ^ num;
+        }
+        return result;
+      }
+      let arr = [1, 2, 3, 2, 5, 3];
+      console.log(numAppearOnes(arr));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock buy and sell</title>
+  </head>
+  <body>
+    <script>
+      // Method-1 Brute Force
+      //  Har possible buy-sell pair check karo
+      // O(n²) time lagta hai
+      // function StockBuySell(arr) {
+      //   let maxProfit = 0;
+      //   for (let i = 0; i < arr.length; i++) {
+      //     for (let j = i + 1; j < arr.length; j++) {
+      //       let profit = arr[j] - arr[i];
+      //       if (profit > maxProfit) {
+      //         maxProfit = profit;
+      //       }
+      //     }
+      //   }
+      //   return maxProfit;
+      // }
+      // let abc = [7, 1, 5, 3, 6, 4];
+      // console.log(StockBuySell(abc));
+      //❌ Problem → Large input par slow ho jayega.
+
+      //Method-2 Optimized Approach (O(n) Time)
+      function stockBuySell(arr) {
+        let minPrice = arr[0];
+        let maxPrice = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          let profit = arr[i] - minPrice;
+          if (profit > maxPrice) {
+            maxPrice = profit;
+          }
+          if (profit < minPrice) {
+            minPrice = arr[i];
+          }
+        }
+        return maxPrice;
+      }
+      let arr = [7, 1, 5, 3, 6, 4];
+      console.log(stockBuySell(arr));
+      //       Key Points
+      // Buy before sell hona chahiye
+      // Ek hi transaction allowed hai
+      // Best approach: O(n) time, O(1) space
+    </script>
+  </body>
+</html>

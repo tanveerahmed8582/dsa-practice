@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function linearSearch(arr, k) {
+        for (let i = 0; i <= arr.length; i++) {
+          if (arr[i] == k) {
+            return i;
+          }
+        }
+        return -1;
+      }
+      let abc = [10, 45, 43, 79, 66];
+      let t = 67;
+      console.log(linearSearch(abc, t));
+    </script>
+  </body>
+</html>
