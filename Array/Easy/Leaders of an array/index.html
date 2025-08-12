@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaders of an array</title>
+  </head>
+  <body>
+    <script>
+      function findLeaders(arr) {
+        let n = arr.length;
+        let leaders = [];
+
+        //Last element is always leaders
+        let maxFromRight = arr[n - 1];
+        leaders.push(maxFromRight);
+
+        //Traverse from second last to first
+        for (let i = n - 2; i >= 0; i--) {
+          if (arr[i] > maxFromRight) {
+            maxFromRight = arr[i];
+            leaders.push(arr[i]);
+          }
+        }
+
+        //Since we travese from right to left reverse to maintain order.
+        return leaders.reverse();
+      }
+
+      //Example
+      let abc = [23, 54, 78, 21, 54, 89, 52, 86, 49, 40];
+      console.log(findLeaders(abc));
+    </script>
+  </body>
+</html>
