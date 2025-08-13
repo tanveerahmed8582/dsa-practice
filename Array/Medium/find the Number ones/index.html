@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find the number ones in an array and other number are twice.</title>
+  </head>
+  <body>
+    <script>
+      function findOnes(arr) {
+        let unique = 0;
+        for (let i = 0; i < arr.length; i++) {
+          unique = unique ^ arr[i];
+        }
+        return unique;
+      }
+      let arr = [2, 3, 3, 5, 5];
+      console.log(findOnes(arr));
+    </script>
+  </body>
+</html>
