@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2Sum Problem</title>
+  </head>
+  <body>
+    <script>
+      //Method:-1 Brute Force Approach
+      // function findSumTwo(arr, k) {
+      //   for (let i = 0; i < arr.length; i++) {
+      //     for (let j = i + 1; j < arr.length; j++) {
+      //       if (arr[i] + arr[j] === k) {
+      //         return [i, j];
+      //       }
+      //     }
+      //   }
+      // }
+      // let arr = [2, 5, 6, 4, 3, 9, 1];
+      // let k = 7
+      // console.log(findSumTwo(arr, k));
+
+      //Method:-2 Optimized Approach: Sorting + Two Pointers (O(n log n))
+      function addTwoSum(arr, k) {
+        let arr2 = arr.map((value, index) => [value, index]); //add index with value
+        arr2.sort((a, b) => a[0] - b[0]);
+        let left = 0;
+        let right = arr2.length - 1;
+        while (left < right) {
+          let sum = arr2[left][0] + arr2[right][0];
+          if (sum === k) {
+            return [arr2[left][1], arr2[right][1]]; // original indices
+          } else if (sum < k) {
+            left++;
+          } else {
+            right--;
+          }
+        }
+        return [];
+      }
+      let arr = [3, 7, 11, 15, 3, 6];
+      let k = 9;
+      console.log(addTwoSum(arr, k));
+    </script>
+  </body>
+</html>

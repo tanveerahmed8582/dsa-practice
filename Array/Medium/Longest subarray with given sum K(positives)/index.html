@@ -7,18 +7,61 @@
   </head>
   <body>
     <script>
-      function findSubArr(arr, k) {
-        let count = 0;
+      // function findSubArr(arr, k) {
+      //   let count = 0;
+      //   let sum = 0;
+      //   for (let i = 0; i < arr.length; i++) {
+      //     for (let j = 0; j < arr.length; j++) {
+      //       if (arr[i] + arr[j] == k) {
+      //         count++;
+      //       }
+      //     }
+      //     return;
+      //   }
+      // }
+      // findSubArr();
+
+      //Method:1 - Brute Force Approach
+      // function findSubArr() {
+      //   let maxLen = 0;
+      //   for (let i = 0; i < arr.length; i++) {
+      //     let sum = 0;
+      //     for (let j = i; j < arr.length; j++) {
+      //       sum += arr[j];
+      //       if (sum == k) {
+      //         maxLen = Math.max(maxLen, j - i + 1);
+      //       }
+      //     }
+      //   }
+      //   return maxLen;
+      // }
+      // let arr = [1, 1, 1, 6, 3, 8, 9];
+      // let k = 9;
+      // console.log(findSubArr(arr, k));
+
+      //Method:-2 Window Sliding
+
+      function findMaxSubArr(arr, k) {
+        let left = 0;
+        let right = 0;
         let sum = 0;
-        for (let i = 0; i < arr.length; i++) {
-          for (let j = 0; j < arr.length; j++) {
-            if (arr[i] + arr[j] == target) {
-              count++;
-            }
+        let maxLen = 0;
+        while (right < arr.length) {
+          sum += arr[right];
+          while (sum > k && left <= right) {
+            sum -= arr[left];
+            left++;
           }
-          return;
+          if (sum == k) {
+            maxLen = Math.max(maxLen, right - left + 1);
+          }
+          right++;
         }
+        return maxLen;
       }
+      let arr = [1, 1, 1, 6, 3, 8, 9];
+      let k = 9;
+      console.log(findMaxSubArr(arr, k));
     </script>
   </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find longest word</title>
+  </head>
+  <body>
+    <script>
+      function findLongestWord(sentence) {
+        let words = sentence.split(" "); //convert word into array
+        let longest = "";
+        i = 0;
+        while (i < words.length) {
+          if (words[i].length > longest.length) {
+            longest = words[i]; //update longest word
+          }
+          i++;
+        }
+        return longest;
+      }
+
+      let sentence = "Delhi is the capital of india";
+      console.log(findLongestWord(sentence));
+    </script>
+  </body>
+</html>

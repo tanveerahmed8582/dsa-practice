@@ -6,6 +6,31 @@
     <title>Practice</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      //Loop + spread operator
+      // let arr = [
+      //   [1, 2],
+      //   [3, 4],
+      //   [5, 6],
+      //   [7, 8],
+      // ];
+      // let mergedArr = [];
+      // for (let i = 0; i < arr.length; i++) {
+      //   mergedArr.push(...arr[i]);
+      // }
+      // console.log(mergedArr);
+
+      let arr = [1, 2, 3, 4, 5, 1, 2];
+      let duplicate = [];
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] === arr[j]) {
+            console.log(arr[i]);
+            break;
+          }
+        }
+      }
+      console.log(duplicate);
+    </script>
   </body>
 </html>
