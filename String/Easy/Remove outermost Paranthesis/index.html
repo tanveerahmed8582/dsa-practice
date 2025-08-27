@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove outermost Paranthesis</title>
+  </head>
+  <body>
+    <script>
+      function removeOuterParenthasis(str) {
+        let counter = 0;
+        let result = [];
+        for (let ch of str) {
+          if (ch == "(") {
+            if (counter > 0) {
+              result.push("(");
+            }
+            counter++;
+          } else {
+            counter--;
+            if (counter > 0) {
+              result.push(")");
+            }
+          }
+        }
+        return result.join("");
+      }
+      let str = "(()())(())";
+      console.log(removeOuterParenthasis(str));
+    </script>
+  </body>
+</html>
