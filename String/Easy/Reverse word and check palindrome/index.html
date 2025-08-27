@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse words in a given string / Palindrome Check</title>
+  </head>
+  <body>
+    <script>
+      //Optimized Approach (Two Pointers)
+      // function reverseWord(str) {
+      //   let words = str.split(" ");
+      //   let left = 0,
+      //     right = str.length - 1;
+      //   while (left < right) {
+      //     [words[left], words[right]] = [words[right], words[left]];
+      //     left++;
+      //     right--;
+      //   }
+      //   return words.join(" ");
+      // }
+      // let str = "My name is Tanveer Ahmed. I am from Siwan,Bihar";
+      // console.log(reverseWord(str));
+
+      //Build-in Method
+      function reverseWord(str) {
+        let reverseWord = str.split(" ").reverse().join(" ");
+        return reverseWord;
+      }
+      let str = "My name is Tanveer Ahmed";
+      console.log(reverseWord(str));
+    </script>
+  </body>
+</html>
