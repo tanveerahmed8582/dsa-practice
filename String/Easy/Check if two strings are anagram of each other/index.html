@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check if two strings are anagram of each other</title>
+  </head>
+  <body>
+    <script>
+      function checkAnagram(str1, str2) {
+        if (str1.length !== str2.length) return false;
+        str1 = str1.toLowerCase().split("").sort().join("");
+        str2 = str2.toLowerCase().split("").sort().join("");
+        return str1 === str2;
+      }
+      let str1 = "silent";
+      let str2 = "listen";
+      console.log(checkAnagram(str1, str2));
+    </script>
+  </body>
+</html>
