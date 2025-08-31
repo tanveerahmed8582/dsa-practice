@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>check whether one string is a rotation of another</title>
+  </head>
+  <body>
+    <script>
+      function checkRotation(s1, s2) {
+        if (s1.length !== s2.length || s1.length === "") return false;
+
+        for (let i = 0; i < s1.length; i++) {
+          //rotate s1 by i
+          let rotated = s1.slice(i) + s1.slice(0, i);
+          if (rotated === s2) return true;
+        }
+        return false;
+      }
+      let s1 = "abcde";
+      let s2 = "cdeab";
+      console.log(checkRotation(s1, s2));
+    </script>
+  </body>
+</html>

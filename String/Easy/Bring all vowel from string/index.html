@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bring all vowel from string</title>
+  </head>
+  <body>
+    <script>
+      // Method - 1 Build-in method;
+      // let str = "Tanveer";
+      // let vowel = str.match(/[aeiouc]/gi);
+      // let uniqueVowel = [...new Set(vowel)];
+      // console.log(vowel);
+      // console.log(uniqueVowel);
+
+      // Method-3 Optimized Approach
+      function findVowel(str) {
+        let vowel = "";
+        for (let i = 0; i < str.length; i++) {
+          let ch = str[i].toLowerCase();
+          if (
+            ch === "a" ||
+            ch === "e" ||
+            ch === "i" ||
+            ch === "o" ||
+            ch === "u"
+          ) {
+            vowel += str[i]; // original character add kar diya
+          }
+        }
+        return vowel;
+      }
+      let str = "Tanveer";
+      console.log(findVowel(str));
+
+      //Method-3 brute force approach
+      // function findVowelInString(str) {
+      //   let vowel = "";
+      //   let vowelList = "aeiouAEIOU";
+      //   for (let i = 0; i < str.length; i++) {
+      //     let ch = str[i];
+      //     for (let j = 0; j < str.length; j++) {
+      //       if (ch === vowelList[j]) {
+      //         vowel = vowel + ch;
+      //       }
+      //     }
+      //   }
+      //   return vowel;
+      // }
+      // let str = " Tanveer";
+      // console.log(findVowelInString(str));
+    </script>
+  </body>
+</html>
