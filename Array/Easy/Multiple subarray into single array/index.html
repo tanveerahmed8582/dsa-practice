@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple subarray element merged into single array</title>
+  </head>
+  <body>
+    <script>
+      // Method-1 Using flat() method
+      // let arr = [
+      //   [21, 22],
+      //   [[[23, 24], 31, 31], 41, 42],
+      //   [25, 26],
+      // ];
+      // let result = arr.flat();
+      // console.log(result);
+
+      // Method-2 Using reduce() method
+      let arr = [
+        [21, 22],
+        [[[23, 24], 31, 31], 41, 42],
+        [25, 26],
+      ];
+      function mergeSubArrInSingleArr(arr) {
+        return arr.reduce((prev, curr) => prev.concat(curr), []);
+      }
+
+      console.log(mergeSubArrInSingleArr(arr));
+
+      // Method-3 using recursive method
+    </script>
+  </body>
+</html>
