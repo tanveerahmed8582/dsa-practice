@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sort Characters by frequency</title>
+  </head>
+  <body>
+    <script>
+      function sortChar(str) {
+        let freq = {}; //Step-1 frequency count using object
+        for (let char of str) {
+          freq[char] = (freq[char] || 0) + 1;
+        }
+
+        // Step 2: Convert object into array of [char, freq] and sort by freq desc
+        let sorted = Object.entries(freq).sort((a, b) => b[1] - a[1]);
+
+        // Step 3: Build result string
+        let result = "";
+        for (let [char, count] of sorted) {
+          result += char.repeat(count);
+        }
+        return result;
+      }
+      let str = `Democracy is the goverment of the people by the people for the people`;
+      console.log(sortChar(str));
+    </script>
+  </body>
+</html>

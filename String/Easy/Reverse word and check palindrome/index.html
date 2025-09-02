@@ -24,10 +24,14 @@
 
       //Build-in Method
       function reverseWord(str) {
-        let reverseWord = str.split(" ").reverse().join(" ");
-        return reverseWord;
+        let revWord = str
+          .trim() // extra spaces hatana
+          .split(/\s+/) // words ka array banana
+          .reverse() // har word ko reverse karna
+          .join(" "); // wapas ek string banana
+        return revWord;
       }
-      let str = "My name is Tanveer Ahmed";
+      let str = " saare jahan se accha hindustan hamara.";
       console.log(reverseWord(str));
     </script>
   </body>
