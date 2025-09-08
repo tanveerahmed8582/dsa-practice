@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Largest Odd Number in String</title>
+  </head>
+  <body>
+    <script>
+      // Method-1 using while loop
+      // function findLargestOddNum(str) {
+      //   let result = "";
+      //   for (let i = str.length - 1; i >= 0; i--) {
+      //     if (parseInt(str[i]) % 2 === 1) {
+      //       return str.slice(0, i + 1);
+      //     }
+      //   }
+      //   return "";
+      // }
+      // let str = "87654354322252";
+      // console.log(findLargestOddNum(str));
+
+      //Method-2 Using while loop
+      function findLargestOddNum(str) {
+        let result = "";
+        let n = str.length - 1;
+        while (n >= 0) {
+          if (parseInt(str[n]) % 2 === 1) {
+            return str.slice(0, n + 1);
+          }
+        }
+        return "";
+      }
+      let str = "23456";
+      console.log(findLargestOddNum(str));
+    </script>
+  </body>
+</html>

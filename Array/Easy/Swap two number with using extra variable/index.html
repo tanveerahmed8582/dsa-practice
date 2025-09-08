@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swap two number without using third variable</title>
+  </head>
+  <body>
+    <script>
+      //Method-1 (Best for Interview)
+      let a = 10;
+      let b = 20;
+      a = a ^ b;
+      b = a ^ b;
+      a = a ^ b;
+      console.log(`Before the value of a = 10, after the value of a = ${a}`);
+      console.log(`Before the value of b = 20, after the value of b = ${b}`);
+
+      //Method-2
+      // let a = 10;
+      // let b = 20;
+      // a = a + b;
+      // b = a - b;
+      // a = a - b;
+      // console.log(a, b);
+
+      //Method-2
+      // let a = 10;
+      // let b = 20;
+      // a = a * b;
+      // b = a / b;
+      // a = a / b;
+      // console.log(a, b);
+    </script>
+  </body>
+</html>

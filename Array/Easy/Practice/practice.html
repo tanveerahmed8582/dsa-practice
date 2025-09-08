@@ -7,18 +7,22 @@
   </head>
   <body>
     <script>
-      function findMaximumSubArr(arr) {
-        let sum = 0;
-        let maxi = arr[0];
+      function majorityElement(arr) {
         for (let i = 0; i < arr.length; i++) {
-          sum += arr[i];
-          maxi = Math.max(maxi, sum);
-          if (sum < 0) sum = 0;
+          let count = 0;
+          for (let j = 0; j < arr.length; j++) {
+            if (arr[i] == arr[j]) {
+              count++;
+            }
+          }
+          if (count > Math.floor(arr.length / 2)) {
+            return arr[i];
+          }
         }
-        return maxi;
+        return -1;
       }
-      let arr = [2, 4, -6, 5, -9, 12, -56, 4, 7];
-      console.log(findMaximumSubArr(arr));
+      let arr = [3, 4, 5, 7, 5, 3, 3, 3];
+      console.log(majorityElement(arr));
     </script>
   </body>
 </html>

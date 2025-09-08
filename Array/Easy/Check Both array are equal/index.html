@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check both array are equal</title>
+  </head>
+  <body>
+    <script>
+      //Method-1 Using every() (best & optimized)
+      function areArrayEqual(arr1, arr2) {
+        if (arr1.length !== arr2.length) return false;
+        return arr1.every((val, index) => {
+          return val === arr2[index];
+        });
+      }
+      let arr1 = [1, 2, 3, 4];
+      let arr2 = [1, 2, 3, 4];
+      console.log(areArrayEqual(arr1, arr2));
+
+      // Method 2: Using reduce()
+      function areArraysEqual(arr1, arr2) {
+        if (arr1.length !== arr2.length) return false;
+        return arr1.reduce((acc, val, i) => acc && val === arr2[i], true);
+      } //Functional style, but internally same O(n) check hi hai.
+    </script>
+  </body>
+</html>
