@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Print the matrix in spiral manner</title>
+  </head>
+  <body>
+    <script>
+      function printSpiral(matrix) {
+        if (!matrix || matrix.length === 0) return [];
+
+        let result = [];
+        let rowStart = 0;
+        let rowEnd = matrix.length - 1;
+        let colStart = 0;
+        let colEnd = matrix[0].length - 1;
+
+        while (rowStart <= rowEnd && colStart <= colEnd) {
+          //1) letf -> right, (rowStart fix)
+          for (let col = colStart; col <= colEnd; col++) {
+            result.push(matrix[rowStart][col]);
+          }
+          rowStart++;
+
+          //2) top -> down, (colEnd fix)
+          for (let row = rowStart; row <= rowEnd; row++) {
+            result.push(matrix[row][colEnd]);
+          }
+          colEnd--;
+
+          //3)right -> left, (rowEnd fix)
+          if (rowStart <= rowEnd) {
+            for (let col = colEnd; col >= colStart; col--) {
+              result.push(matrix[rowEnd][col]);
+            }
+            rowEnd--;
+          }
+
+          //4)down -> top, (colStart fix)
+          if (colStart <= colEnd) {
+            for (let row = rowEnd; row >= rowStart; row--) {
+              result.push(matrix[row][colStart]);
+            }
+            colStart++;
+          }
+        }
+        return result;
+      }
+      let matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+      console.log(printSpiral(matrix));
+    </script>
+  </body>
+</html>

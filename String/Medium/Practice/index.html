@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <script>
+      function beautySum(str) {
+        const n = str.length;
+        let total = 0;
+        for (let i = 0; i < n; i++) {
+          const freq = new Array(26).fill(0);
+          for (let j = i; j < n; j++) {
+            const idx = str.charCodeAt(j) - 97;
+            freq[idx]++;
+            let maxFreq = 0;
+            let minFreq = Infinity;
+            for (let k = 0; k < 26; k++) {
+              if (freq[k] > 0) {
+                maxFreq = Math.max(maxFreq, freq[k]);
+                minFreq = Math.min(minFreq, freq[k]);
+              }
+            }
+            total += maxFreq - minFreq;
+          }
+        }
+        return total;
+      }
+      let str = "aabcb";
+      console.log(beautySum(str));
+    </script>
+  </body>
+</html>
